@@ -1,29 +1,22 @@
-const screens = document.querySelectorAll('.screen');
-let current = 0;
+const music = document.getElementById("bgMusic");
+const playBtn = document.getElementById("playMusicBtn");
+const finalText = document.getElementById("finalText");
 
-const music = document.getElementById('bgMusic');
-const toggle = document.getElementById('musicToggle');
-const startBtn = document.getElementById('startBtn');
+let playing = false;
 
-startBtn.onclick = () => {
-  music.play();
-  nextScreen();
-};
-
-toggle.onclick = () => {
-  music.paused ? music.play() : music.pause();
-};
-
-function nextScreen() {
-  screens[current].classList.remove('active');
-  current++;
-  if (screens[current]) {
-    screens[current].classList.add('active');
+playBtn.addEventListener("click", () => {
+  if (!playing) {
+    music.volume = 0.4;
+    music.play();
+    playBtn.textContent = "⏸ Pause Music";
+  } else {
+    music.pause();
+    playBtn.textContent = "▶ Play Music";
   }
-}
-
-document.body.addEventListener('click', () => {
-  if (current > 0 && current < screens.length - 1) {
-    nextScreen();
-  }
+  playing = !playing;
 });
+
+function yes() {
+  finalText.textContent = "I knew it. I always do.";
+  finalText.style.opacity = 1;
+}
