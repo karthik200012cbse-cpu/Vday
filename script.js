@@ -1,22 +1,52 @@
 const music = document.getElementById("bgMusic");
-const playBtn = document.getElementById("playMusicBtn");
-const finalText = document.getElementById("finalText");
+const musicBtn = document.getElementById("musicBtn");
+const whisper = document.getElementById("whisper");
+const fades = document.querySelectorAll(".fade");
+const finalLine = document.getElementById("finalLine");
 
 let playing = false;
+let lastScroll = 0;
 
-playBtn.addEventListener("click", () => {
+// MUSIC CONTROL
+musicBtn.onclick = () => {
   if (!playing) {
     music.volume = 0.4;
     music.play();
-    playBtn.textContent = "⏸ Pause Music";
+    musicBtn.textContent = "⏸ Pause Music";
   } else {
     music.pause();
-    playBtn.textContent = "▶ Play Music";
+    musicBtn.textContent = "▶ Play Music";
   }
   playing = !playing;
+};
+
+// SCROLL REVEALS
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.4 });
+
+fades.forEach(el => observer.observe(el));
+
+// FLIRT WITH SCROLL BEHAVIOR
+window.addEventListener("scroll", () => {
+  const current = window.scrollY;
+
+  if (current - lastScroll > 120) {
+    whisper.textContent = "Hey… don’t rush.";
+  } else if (lastScroll - current > 120) {
+    whisper.textContent = "Missed something?";
+  }
+
+  lastScroll = current;
 });
 
-function yes() {
-  finalText.textContent = "I knew it. I always do.";
-  finalText.style.opacity = 1;
+// FINAL RESPONSE
+function finalYes() {
+  finalLine.textContent = "I knew it. I always do.";
+  finalLine.style.opacity = 1;
 }
+
