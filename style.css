@@ -1,56 +1,77 @@
 body {
   margin: 0;
-  font-family: 'Cormorant Garamond', serif;
-  background: #111;
+  background: #0e0e0e;
   color: #f5f1e6;
-  overflow: hidden;
+  font-family: 'Cormorant Garamond', serif;
+  scroll-behavior: smooth;
 }
 
-.screen {
-  display: none;
-  height: 100vh;
-  padding: 10%;
+.scene {
+  min-height: 100vh;
+  padding: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
 }
 
-.screen.active {
-  display: block;
-}
-
-.typewriter {
-  font-size: 2rem;
-  animation: fadeIn 3s ease-in;
-}
-
-.primary-btn {
-  margin-top: 2rem;
-  background: none;
-  border: 1px solid #f5f1e6;
-  color: inherit;
-  padding: 12px 24px;
-  cursor: pointer;
-}
-
-.emphasis {
-  font-size: 2.2rem;
+h1, h2 {
   font-family: 'Playfair Display', serif;
 }
 
-.music-control {
+.flirt h2 {
+  font-size: 2.5rem;
+}
+
+.photos {
+  flex-direction: row;
+  gap: 40px;
+}
+
+.photos img {
+  width: 280px;
+  filter: sepia(30%) contrast(1.1);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+  transition: transform 1s ease;
+}
+
+.photos img:hover {
+  transform: scale(1.05);
+}
+
+.soft {
+  opacity: 0.8;
+  font-size: 1.4rem;
+}
+
+.music-btn {
   position: fixed;
   top: 20px;
   right: 20px;
-  width: 50px;
-  opacity: 0.7;
+  background: none;
+  border: 1px solid #f5f1e6;
+  color: #f5f1e6;
+  padding: 8px 14px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.music-btn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.choices button {
+  margin: 10px;
+  padding: 10px 18px;
+  background: none;
+  border: 1px solid #f5f1e6;
+  color: #f5f1e6;
   cursor: pointer;
 }
 
-.grain {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('assets/grain.png');
-  pointer-events: none;
-  opacity: 0.08;
+#finalText {
+  margin-top: 30px;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 2s ease;
 }
