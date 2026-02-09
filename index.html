@@ -1,64 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>For You</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Vintage Fonts -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Cormorant+Garamond&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Film Grain Overlay -->
-  <div class="grain"></div>
-
-  <!-- Music Player -->
-  <div class="music-control" id="musicToggle">
-    <img src="assets/vinyl.png" alt="Play Music">
-  </div>
+  <!-- Music -->
   <audio id="bgMusic" loop>
     <source src="assets/music.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Opening Screen -->
-  <section class="screen intro active">
-    <p class="typewriter">
-      Somewhere between then and now…<br>
-      there was always you.
-    </p>
-    <button class="primary-btn" id="startBtn">▶ Play the song</button>
+  <button id="playMusicBtn" class="music-btn">▶ Play Music</button>
+
+  <!-- Scene 1 -->
+  <section class="scene intro">
+    <h1>Somewhere between then and now…</h1>
+    <p>there was always you.</p>
   </section>
 
-  <!-- Flirty Section -->
-  <section class="screen flirt">
+  <!-- Scene 2 -->
+  <section class="scene flirt">
     <p>Even in black and white…</p>
-    <p class="emphasis">you stood out.</p>
+    <h2>you stood out.</h2>
   </section>
 
-  <!-- Teasing Section -->
-  <section class="screen tease">
+  <!-- Scene 3 – Photos -->
+  <section class="scene photos">
+    <img src="assets/us1.jpg" alt="Us">
+    <img src="assets/us2.jpg" alt="Us">
+  </section>
+
+  <!-- Scene 4 -->
+  <section class="scene tease">
     <p>You’re still here.</p>
     <p class="soft">I like that about you.</p>
   </section>
 
-  <!-- Emotional Turn -->
-  <section class="screen emotion">
-    <p>I don’t flirt like this with anyone.</p>
-    <p class="emphasis">I made this for you.</p>
-  </section>
-
-  <!-- Valentine Ask -->
-  <section class="screen final">
-    <div class="envelope">
-      <p>Will you be my Valentine?</p>
-      <div class="choices">
-        <button>Always</button>
-        <button>You already know</button>
-      </div>
+  <!-- Scene 5 -->
+  <section class="scene final">
+    <h2>Will you be my Valentine?</h2>
+    <div class="choices">
+      <button onclick="yes()">Always</button>
+      <button onclick="yes()">You already know</button>
     </div>
+    <p id="finalText"></p>
   </section>
 
   <script src="script.js"></script>
